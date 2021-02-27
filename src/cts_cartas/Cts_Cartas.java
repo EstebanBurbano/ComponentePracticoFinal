@@ -6,6 +6,7 @@
 package cts_cartas;
 
 import com.cts.model.Conexion;
+import com.cts.view.LoginForm;
 import com.cts.view.Menu;
 
 /**
@@ -25,6 +26,8 @@ public class Cts_Cartas {
         else
             System.out.println("Conexion Incorrecta");
         
+        LoginForm loginForm = new LoginForm();
+        loginForm.setVisible(true);
       //Menu menu = new Menu();
       //menu.setVisible(true);
     }

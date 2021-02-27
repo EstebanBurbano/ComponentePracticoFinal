@@ -10,6 +10,7 @@ import com.cts.controller.EmpleadosControlador;
 import com.cts.controller.ProductosControlador;
 import com.cts.controller.TraductoresControlador;
 import com.cts.controller.TrabajoControlador;
+import com.cts.controller.TrabajoMantenimientoControlador;
 import com.cts.model.ValidadoresTxt;
 import java.awt.Dimension;
 import javax.swing.JInternalFrame;
@@ -51,6 +52,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItemCartas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,13 +134,21 @@ public class Menu extends javax.swing.JFrame {
         jMenu4.setText(" ACTIVIDAD  ");
         jMenu4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
-        jMenuItem2.setText("Agregar Venta");
+        jMenuItem2.setText("Agregar Pago");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
         jMenu4.add(jMenuItem2);
+
+        jMenuItem3.setText("Mantenimiento Orden");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem3);
 
         jMenuBar1.add(jMenu4);
 
@@ -229,6 +239,19 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+
+        Trabajo trabajo = new Trabajo();
+        TrabajoMantenimientoControlador mantenimientoControlador = new TrabajoMantenimientoControlador(trabajo);
+        VentanaPrincipal.add(trabajo);
+        Dimension desktopSize = VentanaPrincipal.getSize();
+        Dimension FrameSize = trabajo.getSize();
+        trabajo.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        trabajo.show();
+                
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     void CentrarVentana (JInternalFrame frame){
         VentanaPrincipal.add(frame);
         Dimension dimension = VentanaPrincipal.getSize();
@@ -281,6 +304,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItemAyuda;
     private javax.swing.JMenuItem jMenuItemCartas;
     private javax.swing.JMenuItem jMenuItemSalir;

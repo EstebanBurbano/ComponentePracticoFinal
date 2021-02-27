@@ -71,6 +71,7 @@ public class TrabajoControlador implements ActionListener{
         fecha();
         
     }
+    
 
     
     
