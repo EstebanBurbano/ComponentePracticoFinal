@@ -34,7 +34,7 @@ public class ProductosControlador implements ActionListener{
     public ProductosControlador(Cartas v) {
         this.cartasVista = v;
         this.cartasVista.btnAgregar.addActionListener(this);
-        this.cartasVista.btnEditar.addActionListener(this);
+        //this.cartasVista.btnEditar.addActionListener(this);
         this.cartasVista.btnActualizar.addActionListener(this);
         this.cartasVista.btnEliminar.addActionListener(this);
         this.cartasVista.btnListarAct.addActionListener(this);
@@ -70,7 +70,7 @@ public class ProductosControlador implements ActionListener{
             cartasVista.cbEstadoProducto.setEnabled(false);
 
         }
-        if (e.getSource() == cartasVista.btnEditar) {
+        /*if (e.getSource() == cartasVista.btnEditar) {
             int fila = cartasVista.tblCartas.getSelectedRow();
             if (fila == -1) {
                 JOptionPane.showMessageDialog(cartasVista, "Debee Seleccionar Una fila..!!");
@@ -90,7 +90,7 @@ public class ProductosControlador implements ActionListener{
             }
             
 
-        }
+        }*/
         if (e.getSource() == cartasVista.btnActualizar) {
             Actualizar();
             listar(cartasVista.tblCartas);

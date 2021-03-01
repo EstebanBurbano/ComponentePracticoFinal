@@ -34,7 +34,7 @@ public class TraductoresControlador implements ActionListener {
     public TraductoresControlador(Traductores v) {
         this.traductoresVista = v;
         this.traductoresVista.btnAgregar.addActionListener(this);
-        this.traductoresVista.btnEditar.addActionListener(this);
+        //this.traductoresVista.btnEditar.addActionListener(this);
         this.traductoresVista.btnActualizar.addActionListener(this);
         this.traductoresVista.btnEliminar.addActionListener(this);
         this.traductoresVista.btnListarAct.addActionListener(this);
@@ -71,7 +71,7 @@ public class TraductoresControlador implements ActionListener {
             traductoresVista.cbEstadoTraductor.setEnabled(false);
 
         }
-        if (e.getSource() == traductoresVista.btnEditar) {
+        /*if (e.getSource() == traductoresVista.btnEditar) {
             int fila = traductoresVista.tblTraductores.getSelectedRow();
             if (fila == -1) {
                 JOptionPane.showMessageDialog(traductoresVista, "Debee Seleccionar Una fila..!!");
@@ -96,7 +96,7 @@ public class TraductoresControlador implements ActionListener {
             }
             
 
-        }
+        }*/
         if (e.getSource() == traductoresVista.btnActualizar) {
             Actualizar();
             listar(traductoresVista.tblTraductores);

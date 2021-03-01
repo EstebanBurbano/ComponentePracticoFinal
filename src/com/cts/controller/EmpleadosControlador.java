@@ -10,6 +10,7 @@ import com.cts.model.dao.EmpleadosModelDao;
 import com.cts.view.Empleados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -32,16 +33,22 @@ public class EmpleadosControlador implements ActionListener{
         
         this.empleadoVista = v;
         this.empleadoVista.btnAgregar.addActionListener(this);
-        this.empleadoVista.btnEditar.addActionListener(this);
+        //this.empleadoVista.btnEditar.addActionListener(this);
         this.empleadoVista.btnActualizar.addActionListener(this);
         this.empleadoVista.btnEliminar.addActionListener(this);
         this.empleadoVista.btnActListar.addActionListener(this);
         this.empleadoVista.btnInaListar.addActionListener(this);
+        this.empleadoVista.btnBuscar.addActionListener(this);
         
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+        if(e.getSource() == empleadoVista.btnBuscar){
+            limpiarTabla();
+            buscarEmpleados(empleadoVista.tblEmpleados, empleadoVista.txtBuscar.getText());
+        }
         
         if (e.getSource() == empleadoVista.btnActListar) {
             limpiarTabla();
@@ -63,7 +70,7 @@ public class EmpleadosControlador implements ActionListener{
             empleadoVista.cbEstadoEmpleado.setEnabled(false);
 
         }
-        if (e.getSource() == empleadoVista.btnEditar) {
+        /*if (e.getSource() == empleadoVista.btnEditar) {
             int fila = empleadoVista.tblEmpleados.getSelectedRow();
             if (fila == -1) {
                 JOptionPane.showMessageDialog(empleadoVista, "Debee Seleccionar Una fila..!!");
@@ -81,9 +88,8 @@ public class EmpleadosControlador implements ActionListener{
                 empleadoVista.cbEstadoEmpleado.setSelectedItem(estado);
                 empleadoVista.txtUsuarioEmpleado.setText(usuario);
             }
-            
-
-        }
+        }*/
+        
         if (e.getSource() == empleadoVista.btnActualizar) {
             Actualizar();
             listar(empleadoVista.tblEmpleados);
@@ -99,8 +105,7 @@ public class EmpleadosControlador implements ActionListener{
 
 
         }
-        
-        
+           
     }
     
     void nuevo() {
@@ -240,6 +245,46 @@ public class EmpleadosControlador implements ActionListener{
             tblEmpleados.removeRow(i);
             i = i - 1;
         }
+    }
+    
+    public void buscarEmpleados(JTable tabla, String buscar) {
+        centrarCeldas(tabla);
+        tblEmpleados = (DefaultTableModel) tabla.getModel();
+        tabla.setModel(tblEmpleados);
+        List<EmpleadosModel> lista = empleadosModelDao.buscarEmpleados(buscar);
+        Object[] objeto = new Object[6];
+        for (int i = 0; i < lista.size(); i++) {
+            objeto[0] = lista.get(i).getIdEmpleado();
+            objeto[1] = lista.get(i).getDniEmpleado();
+            objeto[2] = lista.get(i).getNombreEmpleado();
+            objeto[3] = lista.get(i).getApellidoEmpleado();
+            objeto[4] = lista.get(i).getEstadoEmpleado();
+            objeto[5] = lista.get(i).getUsuarioEmpleado();
+            tblEmpleados.addRow(objeto);
+        }
+        tabla.setRowHeight(35);
+        tabla.setRowMargin(10);
+
+    }
+    
+    public void tblEmpleadosMousePressed() {                                          
+        int fila = empleadoVista.tblEmpleados.getSelectedRow();
+            if (fila == -1) {
+                JOptionPane.showMessageDialog(empleadoVista, "Debee Seleccionar Una fila..!!");
+            } else {
+                int id = Integer.parseInt((String) empleadoVista.tblEmpleados.getValueAt(fila, 0).toString());
+                String dni = (String) empleadoVista.tblEmpleados.getValueAt(fila, 1);
+                String nombre = (String) empleadoVista.tblEmpleados.getValueAt(fila, 2);
+                String apellido = (String) empleadoVista.tblEmpleados.getValueAt(fila, 3);
+                String estado = (String) empleadoVista.tblEmpleados.getValueAt(fila, 4);
+                String usuario = (String) empleadoVista.tblEmpleados.getValueAt(fila, 5);
+                empleadoVista.txtIdEmpleado.setText("" + id);
+                empleadoVista.txtCiEmpleado.setText(dni);
+                empleadoVista.txtNombreEmpleado.setText(nombre);
+                empleadoVista.txtApellidoEmpleado.setText(apellido);
+                empleadoVista.cbEstadoEmpleado.setSelectedItem(estado);
+                empleadoVista.txtUsuarioEmpleado.setText(usuario);
+            }
     }
     
     

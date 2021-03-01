@@ -5,7 +5,9 @@
  */
 package com.cts.view;
 
+import com.cts.controller.EmpleadosControlador;
 import com.cts.model.ValidadoresTxt;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,7 +49,6 @@ public class Empleados extends javax.swing.JInternalFrame {
         cbEstadoEmpleado = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         btnAgregar = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnActListar = new javax.swing.JButton();
@@ -55,6 +56,9 @@ public class Empleados extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmpleados = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        txtBuscar = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -155,16 +159,13 @@ public class Empleados extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtUsuarioEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Operaciones"));
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/167-disk-1.png"))); // NOI18N
         btnAgregar.setText("Agregar");
-
-        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/092-pen.png"))); // NOI18N
-        btnEditar.setText("Editar");
 
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/109-refresh.png"))); // NOI18N
         btnActualizar.setText("Actualizar");
@@ -186,7 +187,6 @@ public class Empleados extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -203,13 +203,11 @@ public class Empleados extends javax.swing.JInternalFrame {
                     .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditar)
-                    .addComponent(btnInaListar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnActualizar)
+                    .addComponent(btnInaListar)
+                    .addComponent(btnActualizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEliminar)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -241,8 +239,32 @@ public class Empleados extends javax.swing.JInternalFrame {
             new String [] {
                 "ID", "CEDULA", "NOMBRE", "APELLIDO", "ESTADO", "USUARIO"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblEmpleadosMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblEmpleados);
+
+        jLabel7.setText("BUSCAR:");
+
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyReleased(evt);
+            }
+        });
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/lupa.png"))); // NOI18N
+        btnBuscar.setText("Buscar");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -250,15 +272,28 @@ public class Empleados extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBuscar)
+                        .addComponent(btnBuscar))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -278,8 +313,8 @@ public class Empleados extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -302,12 +337,38 @@ public class Empleados extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoEmpleadoKeyTyped
 
+    private void tblEmpleadosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadosMousePressed
+        int fila = tblEmpleados.getSelectedRow();
+            if (fila == -1) {
+                JOptionPane.showMessageDialog(this, "Debee Seleccionar Una fila..!!");
+            } else {
+                int id = Integer.parseInt((String) tblEmpleados.getValueAt(fila, 0).toString());
+                String dni = (String) tblEmpleados.getValueAt(fila, 1);
+                String nombre = (String) tblEmpleados.getValueAt(fila, 2);
+                String apellido = (String) tblEmpleados.getValueAt(fila, 3);
+                String estado = (String) tblEmpleados.getValueAt(fila, 4);
+                String usuario = (String) tblEmpleados.getValueAt(fila, 5);
+                txtIdEmpleado.setText("" + id);
+                txtCiEmpleado.setText(dni);
+                txtNombreEmpleado.setText(nombre);
+                txtApellidoEmpleado.setText(apellido);
+                cbEstadoEmpleado.setSelectedItem(estado);
+                txtUsuarioEmpleado.setText(usuario);
+            }
+    }//GEN-LAST:event_tblEmpleadosMousePressed
+
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+        
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActListar;
     public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnAgregar;
-    public javax.swing.JButton btnEditar;
+    public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnInaListar;
     public javax.swing.JComboBox<String> cbEstadoEmpleado;
@@ -317,6 +378,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -324,6 +386,7 @@ public class Empleados extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblEmpleados;
     public javax.swing.JTextField txtApellidoEmpleado;
+    public javax.swing.JTextField txtBuscar;
     public javax.swing.JTextField txtCiEmpleado;
     public javax.swing.JTextField txtIdEmpleado;
     public javax.swing.JTextField txtNombreEmpleado;

@@ -10,8 +10,12 @@ import com.cts.model.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,8 +25,6 @@ public class EmpleadosModelDao {
     
     PreparedStatement ps;
     ResultSet rs;
-    
-    
     Conexion con = new Conexion();
     Connection acceso;
     
@@ -189,5 +191,28 @@ public class EmpleadosModelDao {
         }
         return datos;
     }
+    
+    public List buscarEmpleados(String buscar) {
+        List<EmpleadosModel> datos = new ArrayList<>();
+        try {
+            acceso=con.Conectar();
+            ps=acceso.prepareStatement("select * from empleado where idEmpleado LIKE '%"+buscar+"%' OR Nombre LIKE '%"+buscar+"%'");
+            rs=ps.executeQuery();
+            
+            while (rs.next()) {
+                EmpleadosModel empleadosModel = new EmpleadosModel();
+                empleadosModel.setIdEmpleado(rs.getInt(1));
+                empleadosModel.setDniEmpleado(rs.getString(2));
+                empleadosModel.setNombreEmpleado(rs.getString(3));
+                empleadosModel.setApellidoEmpleado(rs.getString(4));
+                empleadosModel.setEstadoEmpleado(rs.getString(5));
+                empleadosModel.setUsuarioEmpleado(rs.getString(6));
+                datos.add(empleadosModel);
+            }
+        } catch (Exception e) {
+        }
+        return datos;
+    }
+     
     
 }

@@ -33,7 +33,7 @@ public class TrabajoMantenimientoControlador implements ActionListener {
         this.trabajoVista = v;
         this.trabajoVista.btnActListar.addActionListener(this);
         this.trabajoVista.btnActualizar.addActionListener(this);
-        this.trabajoVista.btnEditar.addActionListener(this);
+        //this.trabajoVista.btnEditar.addActionListener(this);
         this.trabajoVista.btnEliminar.addActionListener(this);
         this.trabajoVista.btnInaListar.addActionListener(this);
         
@@ -42,7 +42,7 @@ public class TrabajoMantenimientoControlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if (e.getSource() == trabajoVista.btnEditar) {
+        /*if (e.getSource() == trabajoVista.btnEditar) {
             int fila = trabajoVista.tblTrabajo.getSelectedRow();
             if (fila == -1) {
                 JOptionPane.showMessageDialog(trabajoVista, "Debee Seleccionar Una fila..!!");
@@ -66,7 +66,7 @@ public class TrabajoMantenimientoControlador implements ActionListener {
             }
             
 
-        }
+        }*/
         if (e.getSource() == trabajoVista.btnActListar) {
             limpiarTabla();
             listar(trabajoVista.tblTrabajo);

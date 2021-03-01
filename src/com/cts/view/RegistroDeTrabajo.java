@@ -284,7 +284,15 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
             new String [] {
                 "NRO", "COD PROD", "PRODUCTO", "CANTIDAD", "PRECIO UNI", "TOTAL"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblVenta);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
