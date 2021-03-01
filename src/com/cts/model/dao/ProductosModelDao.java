@@ -174,4 +174,25 @@ public class ProductosModelDao {
         return datos;
     }
     
+    public List buscarProductos(String buscar) {
+        List<ProductosModel> datos = new ArrayList<>();
+        try {
+            acceso=con.Conectar();
+            ps=acceso.prepareStatement("select * from producto where idProducto LIKE '%"+buscar+"%' OR Nombres LIKE '%"+buscar+"%'");
+            rs=ps.executeQuery();
+            
+            while (rs.next()) {
+                ProductosModel productosModel = new ProductosModel();
+                productosModel.setIdProducto(rs.getInt(1));
+                productosModel.setNombreCarta(rs.getString(2));
+                productosModel.setPrecioCarta(rs.getDouble(3));
+                productosModel.setStockCarta(rs.getInt(4));
+                productosModel.setEstadoCarta(rs.getString(5));
+                datos.add(productosModel);
+            }
+        } catch (Exception e) {
+        }
+        return datos;
+    }
+    
 }

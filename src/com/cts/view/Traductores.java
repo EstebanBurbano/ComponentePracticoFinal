@@ -298,6 +298,11 @@ public class Traductores extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblTraductores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblTraductoresMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblTraductores);
 
         jLabel9.setText("BUSCAR:");
@@ -394,6 +399,28 @@ public class Traductores extends javax.swing.JInternalFrame {
         
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTipoCuentaKeyTyped
+
+    private void tblTraductoresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTraductoresMousePressed
+        int fila = tblTraductores.getSelectedRow();
+            
+                int id = Integer.parseInt((String) tblTraductores.getValueAt(fila, 0).toString());
+                String dni = (String) tblTraductores.getValueAt(fila, 1);
+                String nombre = (String) tblTraductores.getValueAt(fila, 2);
+                String apellido = (String) tblTraductores.getValueAt(fila, 3);
+                String nombreBanco = (String) tblTraductores.getValueAt(fila, 4);
+                String numeroCuentaBanco = (String) tblTraductores.getValueAt(fila, 5);
+                String tipoCuenta = (String) tblTraductores.getValueAt(fila, 6);
+                String estado = (String) tblTraductores.getValueAt(fila, 7);
+                txtIdTraductor.setText("" + id);
+                txtCiTraductor.setText(dni);
+                txtNombreTraductor.setText(nombre);
+                txtApellidoTraductor.setText(apellido);
+                txtBancoTraductor.setText(nombreBanco);
+                txtCuentaBanco.setText(numeroCuentaBanco);
+                txtTipoCuenta.setText(tipoCuenta);
+                cbEstadoTraductor.setSelectedItem(estado);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblTraductoresMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

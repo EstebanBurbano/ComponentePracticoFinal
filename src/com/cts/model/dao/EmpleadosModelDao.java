@@ -196,7 +196,7 @@ public class EmpleadosModelDao {
         List<EmpleadosModel> datos = new ArrayList<>();
         try {
             acceso=con.Conectar();
-            ps=acceso.prepareStatement("select * from empleado where idEmpleado LIKE '%"+buscar+"%' OR Nombre LIKE '%"+buscar+"%'");
+            ps=acceso.prepareStatement("select * from empleado where idEmpleado LIKE '%"+buscar+"%' OR Nombre LIKE '%"+buscar+"%' OR Apellido LIKE '%"+buscar+"%'");
             rs=ps.executeQuery();
             
             while (rs.next()) {

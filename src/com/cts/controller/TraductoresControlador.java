@@ -40,6 +40,7 @@ public class TraductoresControlador implements ActionListener {
         this.traductoresVista.btnListarAct.addActionListener(this);
         this.traductoresVista.btnListarIna.addActionListener(this);
         this.traductoresVista.btnExcel.addActionListener(this);
+        this.traductoresVista.btnBuscar.addActionListener(this);
     }
     
     
@@ -48,7 +49,18 @@ public class TraductoresControlador implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == traductoresVista.btnExcel) {
+            limpiarTabla();
             excel();
+            nuevo();
+            traductoresVista.cbEstadoTraductor.setEnabled(false);
+        }
+        
+        if (e.getSource() == traductoresVista.btnBuscar) {
+            limpiarTabla();
+            buscarTraductor(traductoresVista.tblTraductores, traductoresVista.txtBuscar.getText());
+            nuevo();
+            traductoresVista.cbEstadoTraductor.setEnabled(false);
+
         }
         
         if (e.getSource() == traductoresVista.btnListarAct) {
@@ -249,6 +261,30 @@ public class TraductoresControlador implements ActionListener {
         tblTraductores = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblTraductores);
         List<TraductoresModel> lista = traductoresModelDao.listarInactivos();
+        Object[] objeto = new Object[8];
+        for (int i = 0; i < lista.size(); i++) {
+            objeto[0] = lista.get(i).getId();
+            objeto[1] = lista.get(i).getCedulaTraductor();
+            objeto[2] = lista.get(i).getNombreTraductor();
+            objeto[3] = lista.get(i).getApellidoTraductor();
+            objeto[4] = lista.get(i).getNombreBancoTraduc();
+            objeto[5] = lista.get(i).getNumeroCuentaBancTraduc();
+            objeto[6] = lista.get(i).getTipoCuentaBancTraduc();
+            objeto[7] = lista.get(i).getEstadoTraduc();
+            tblTraductores.addRow(objeto);
+        }
+        tabla.setRowHeight(35);
+        tabla.setRowMargin(10);
+
+        
+    }
+    
+    public void buscarTraductor(JTable tabla, String buscar){
+        
+        centrarCeldas(tabla);
+        tblTraductores = (DefaultTableModel) tabla.getModel();
+        tabla.setModel(tblTraductores);
+        List<TraductoresModel> lista = traductoresModelDao.buscarTraductores(buscar);
         Object[] objeto = new Object[8];
         for (int i = 0; i < lista.size(); i++) {
             objeto[0] = lista.get(i).getId();

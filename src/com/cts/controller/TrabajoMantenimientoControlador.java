@@ -36,6 +36,7 @@ public class TrabajoMantenimientoControlador implements ActionListener {
         //this.trabajoVista.btnEditar.addActionListener(this);
         this.trabajoVista.btnEliminar.addActionListener(this);
         this.trabajoVista.btnInaListar.addActionListener(this);
+        this.trabajoVista.btnBuscar.addActionListener(this);
         
     }
     
@@ -67,6 +68,14 @@ public class TrabajoMantenimientoControlador implements ActionListener {
             
 
         }*/
+        if (e.getSource() == trabajoVista.btnBuscar) {
+            limpiarTabla();
+            buscarTrabajo(trabajoVista.tblTrabajo, trabajoVista.txtBuscar.getText());
+            nuevo();
+            trabajoVista.cbEstadoTrabajo.setEnabled(false);
+
+        }
+        
         if (e.getSource() == trabajoVista.btnActListar) {
             limpiarTabla();
             listar(trabajoVista.tblTrabajo);
@@ -195,6 +204,27 @@ public class TrabajoMantenimientoControlador implements ActionListener {
         tblTrabajo = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblTrabajo);
         List<TrabajoModel> lista = trabajoModelDao.listarInactivos();
+        Object[] objeto = new Object[7];
+        for (int i = 0; i < lista.size(); i++) {
+            objeto[0] = lista.get(i).getIdTrabajo();
+            objeto[1] = lista.get(i).getIdTraductor();
+            objeto[2] = lista.get(i).getIdEmpleado();
+            objeto[3] = lista.get(i).getSerie();
+            objeto[4] = lista.get(i).getFecha();
+            objeto[5] = lista.get(i).getMonto();
+            objeto[6] = lista.get(i).getEstado();
+            tblTrabajo.addRow(objeto);
+        }
+        tabla.setRowHeight(35);
+        tabla.setRowMargin(10);
+
+    }
+    
+    public void buscarTrabajo(JTable tabla, String buscar) {
+        centrarCeldas(tabla);
+        tblTrabajo = (DefaultTableModel) tabla.getModel();
+        tabla.setModel(tblTrabajo);
+        List<TrabajoModel> lista = trabajoModelDao.buscarTrabajo(buscar);
         Object[] objeto = new Object[7];
         for (int i = 0; i < lista.size(); i++) {
             objeto[0] = lista.get(i).getIdTrabajo();

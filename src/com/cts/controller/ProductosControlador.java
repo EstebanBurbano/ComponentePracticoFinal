@@ -40,13 +40,24 @@ public class ProductosControlador implements ActionListener{
         this.cartasVista.btnListarAct.addActionListener(this);
         this.cartasVista.btnListarIna.addActionListener(this);
         this.cartasVista.btnExcel.addActionListener(this);
+        this.cartasVista.btnBuscar.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == cartasVista.btnExcel) {
+            limpiarTabla();
             excel();
+            nuevo();
+            cartasVista.cbEstadoProducto.setEnabled(false);
+        }
+        
+        if (e.getSource() == cartasVista.btnBuscar) {
+            limpiarTabla();
+            buscarEmpleados(cartasVista.tblCartas, cartasVista.txtBuscar.getText());
+            nuevo();
+            cartasVista.cbEstadoProducto.setEnabled(false);
         }
         
         if (e.getSource() == cartasVista.btnListarAct) {
@@ -217,6 +228,25 @@ public class ProductosControlador implements ActionListener{
         tblCartas = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblCartas);
         List<ProductosModel> lista = productosModelDao.listarInactivos();
+        Object[] objeto = new Object[5];
+        for (int i = 0; i < lista.size(); i++) {
+            objeto[0] = lista.get(i).getIdProducto();
+            objeto[1] = lista.get(i).getNombreCarta();
+            objeto[2] = lista.get(i).getPrecioCarta();
+            objeto[3] = lista.get(i).getStockCarta();
+            objeto[4] = lista.get(i).getEstadoCarta();
+            tblCartas.addRow(objeto);
+        }
+        tabla.setRowHeight(35);
+        tabla.setRowMargin(10);
+
+    }
+    
+    public void buscarEmpleados(JTable tabla, String buscar) {
+        centrarCeldas(tabla);
+        tblCartas = (DefaultTableModel) tabla.getModel();
+        tabla.setModel(tblCartas);
+        List<ProductosModel> lista = productosModelDao.buscarProductos(buscar);
         Object[] objeto = new Object[5];
         for (int i = 0; i < lista.size(); i++) {
             objeto[0] = lista.get(i).getIdProducto();

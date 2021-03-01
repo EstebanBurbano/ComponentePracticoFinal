@@ -256,6 +256,11 @@ public class Trabajo extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblTrabajo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblTrabajoMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblTrabajo);
 
         jLabel5.setText("BUSCAR:");
@@ -332,6 +337,28 @@ public class Trabajo extends javax.swing.JInternalFrame {
         validadoresTxt.textKeyPress(evt);
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroSerieKeyTyped
+
+    private void tblTrabajoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTrabajoMousePressed
+        
+        int fila = tblTrabajo.getSelectedRow();
+            
+                int idTrabajo = Integer.parseInt((String) tblTrabajo.getValueAt(fila, 0).toString());
+                int idTraductor = Integer.parseInt((String) tblTrabajo.getValueAt(fila, 1).toString());
+                int idEmpleado = Integer.parseInt((String) tblTrabajo.getValueAt(fila, 2).toString());
+                String numeroSerie = (String) tblTrabajo.getValueAt(fila, 3);
+                String fecha = (String) tblTrabajo.getValueAt(fila, 4);
+                double monto = Double.parseDouble((String) tblTrabajo.getValueAt(fila, 5).toString());
+                String estado = (String) tblTrabajo.getValueAt(fila, 6);
+               
+                txtIdTrabajo.setText("" + idTrabajo);
+                txtIdTraductor.setText("" + idTraductor);
+                txtIdEmpleado.setText("" + idEmpleado);
+                txtNumeroSerie.setText(numeroSerie);
+                txtFecha.setText(fecha);
+                txtMonto.setText("" + monto);
+                cbEstadoTrabajo.setSelectedItem(estado);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblTrabajoMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -178,6 +178,31 @@ public class TraductoresModelDao {
         return datos;
     }
     
+    public List buscarTraductores(String buscar){
+        List<TraductoresModel> datos = new ArrayList<>();
+        try {
+            acceso=con.Conectar();
+            ps=acceso.prepareStatement("select * from traductor where IdTraductor LIKE '%"+buscar+"%' OR Nombre LIKE '%"+buscar+"%' OR Apellido LIKE '%"+buscar+"%'");
+            rs=ps.executeQuery();
+            
+            while (rs.next()) {
+                TraductoresModel traductoresModel = new TraductoresModel();
+                traductoresModel.setId(rs.getInt(1));
+                traductoresModel.setCedulaTraductor(rs.getString(2));
+                traductoresModel.setNombreTraductor(rs.getString(3));
+                traductoresModel.setApellidoTraductor(rs.getString(4));
+                traductoresModel.setNombreBancoTraduc(rs.getString(5));
+                traductoresModel.setNumeroCuentaBancTraduc(rs.getString(6));
+                traductoresModel.setTipoCuentaBancTraduc(rs.getString(7));
+                traductoresModel.setEstadoTraduc(rs.getString(8));
+                
+                datos.add(traductoresModel);
+            }
+        } catch (Exception e) {
+        }
+        return datos;
+    }
+    
     
     
 }

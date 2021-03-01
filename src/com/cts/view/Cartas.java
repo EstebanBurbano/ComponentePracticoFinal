@@ -252,6 +252,11 @@ public class Cartas extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblCartas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblCartasMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblCartas);
 
         jLabel6.setText("BUSCAR:");
@@ -334,6 +339,23 @@ public class Cartas extends javax.swing.JInternalFrame {
     private void txtNombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreProductoActionPerformed
+
+    private void tblCartasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCartasMousePressed
+        int fila = tblCartas.getSelectedRow();
+            
+                int id = Integer.parseInt((String) tblCartas.getValueAt(fila, 0).toString());
+                String nombre = (String) tblCartas.getValueAt(fila, 1);
+                double precio = Double.parseDouble((String) tblCartas.getValueAt(fila, 2).toString());
+                int stock = Integer.parseInt((String) tblCartas.getValueAt(fila, 3).toString());
+                String estado = (String) tblCartas.getValueAt(fila, 4);
+               
+                txtIdPrducto.setText("" + id);
+                txtNombreProducto.setText(nombre);
+                txtPrecioProducto.setText("" + precio);
+                txtStrockProducto.setText("" + stock);
+                cbEstadoProducto.setSelectedItem(estado);      
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblCartasMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

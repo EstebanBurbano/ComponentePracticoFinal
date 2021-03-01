@@ -145,6 +145,32 @@ public class TrabajoModelDao {
         return datos;
     }
     
+    
+    public List buscarTrabajo(String buscar) {
+        List<TrabajoModel> datos = new ArrayList<>();
+        try {
+            acceso=con.Conectar();
+            ps=acceso.prepareStatement("select * from trabajo where IdTrabajo LIKE '%"+buscar+"%' OR NumeroSerie LIKE '%"+buscar+"%'");
+            rs=ps.executeQuery();
+            
+            while (rs.next()) {
+                TrabajoModel trabajoModel = new TrabajoModel();
+                trabajoModel.setIdTrabajo(rs.getInt(1));
+                trabajoModel.setIdTraductor(rs.getInt(2));
+                trabajoModel.setIdEmpleado(rs.getInt(3));
+                trabajoModel.setSerie(rs.getString(4));
+                trabajoModel.setFecha(rs.getString(5));
+                trabajoModel.setMonto(rs.getDouble(6));
+                trabajoModel.setEstado(rs.getString(7));
+                
+                
+                datos.add(trabajoModel);
+            }
+        } catch (Exception e) {
+        }
+        return datos;
+    }
+    
     public int Eliminar (TrabajoModel trabajoModel) {  
         int r=0;
         String sql="update trabajo set IdTraductor=?, IdEmpleado=?, NumeroSerie=?, FechaTrabajo=?, Monto=?, Estado=? where IdTrabajo=?";   
