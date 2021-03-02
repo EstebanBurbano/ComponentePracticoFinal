@@ -620,7 +620,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnGenerarVenta">
           <Properties>
-            <Property name="text" type="java.lang.String" value="GENERAR VENTA"/>
+            <Property name="text" type="java.lang.String" value="TRABAJO REALIZADO"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

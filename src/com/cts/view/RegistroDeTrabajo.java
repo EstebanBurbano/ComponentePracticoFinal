@@ -321,7 +321,7 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
 
         btnCancelar.setText("CANCELAR");
 
-        btnGenerarVenta.setText("GENERAR VENTA");
+        btnGenerarVenta.setText("TRABAJO REALIZADO");
 
         btnGrafico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/030-pie-chart.png"))); // NOI18N
 
