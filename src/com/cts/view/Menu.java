@@ -41,6 +41,7 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         VentanaPrincipal = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemAyuda = new javax.swing.JMenuItem();
@@ -56,19 +57,31 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        VentanaPrincipal.setBackground(new java.awt.Color(88, 113, 158));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/CTS_Isologo_Negro.png"))); // NOI18N
+
+        VentanaPrincipal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout VentanaPrincipalLayout = new javax.swing.GroupLayout(VentanaPrincipal);
         VentanaPrincipal.setLayout(VentanaPrincipalLayout);
         VentanaPrincipalLayout.setHorizontalGroup(
             VentanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1363, Short.MAX_VALUE)
+            .addGroup(VentanaPrincipalLayout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1092, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(359, Short.MAX_VALUE))
         );
         VentanaPrincipalLayout.setVerticalGroup(
             VentanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 867, Short.MAX_VALUE)
+            .addGroup(VentanaPrincipalLayout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(683, Short.MAX_VALUE))
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/menuPequeno.png"))); // NOI18N
-        jMenu1.setText(" MENU  ");
+        jMenu1.setText(" MENU     ");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         jMenuItemAyuda.setText("Ayuda");
@@ -90,7 +103,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/asistente-de-ventasPeq.png"))); // NOI18N
-        jMenu2.setText(" PERSONAL  ");
+        jMenu2.setText(" PERSONAL     ");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         jMenuItem1.setText("Agregar Empleado");
@@ -112,7 +125,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/cartaPeque.png"))); // NOI18N
-        jMenu3.setText(" CARTAS  ");
+        jMenu3.setText(" CARTAS      ");
         jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,6 +310,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane VentanaPrincipal;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

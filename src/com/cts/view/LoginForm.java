@@ -67,9 +67,12 @@ public class LoginForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnIngresarLogin);
         btnIngresarLogin.setBounds(570, 400, 140, 40);
+
+        txtClave.setToolTipText("Ingrese su Cedula");
         getContentPane().add(txtClave);
         txtClave.setBounds(570, 350, 280, 30);
 
+        txtUsuario.setToolTipText("Ingresa tu usuario \"Eb01\"");
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
