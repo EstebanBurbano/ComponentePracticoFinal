@@ -67,6 +67,8 @@ public class TrabajoControlador implements ActionListener{
         this.registroDeTrabajoVista.btnGrafico.addActionListener(this);
         this.registroDeTrabajoVista.btnBarraGrafico.addActionListener(this);
         this.registroDeTrabajoVista.btnExcel.addActionListener(this);
+        this.registroDeTrabajoVista.btnArea.addActionListener(this);
+        this.registroDeTrabajoVista.btnStackedArea.addActionListener(this);
         generarSerie();
         fecha();
         
@@ -87,6 +89,24 @@ public class TrabajoControlador implements ActionListener{
                 JOptionPane.showMessageDialog(registroDeTrabajoVista, "Debe ingresar una fecha");
             }else{
                 graficarPastel();
+            }
+            
+
+        }
+        if (e.getSource() == registroDeTrabajoVista.btnArea) {
+            if(registroDeTrabajoVista.dcFechaGrafico.getDate() == null){
+                JOptionPane.showMessageDialog(registroDeTrabajoVista, "Debe ingresar una fecha");
+            }else{
+                graficarArea();
+            }
+            
+
+        }
+        if (e.getSource() == registroDeTrabajoVista.btnStackedArea) {
+            if(registroDeTrabajoVista.dcFechaGrafico.getDate() == null){
+                JOptionPane.showMessageDialog(registroDeTrabajoVista, "Debe ingresar una fecha");
+            }else{
+                graficarStackedArea();
             }
             
 
@@ -146,6 +166,22 @@ public class TrabajoControlador implements ActionListener{
         try {
                 String fechaReporte = new SimpleDateFormat("dd/MM/yyyy").format(registroDeTrabajoVista.dcFechaGrafico.getDate());
                 reporteGraficoModel.GraficarBarra(fechaReporte);
+        } catch (Exception e) {
+        }
+         
+    }
+    void graficarArea(){
+        try {
+                String fechaReporte = new SimpleDateFormat("dd/MM/yyyy").format(registroDeTrabajoVista.dcFechaGrafico.getDate());
+                reporteGraficoModel.GraficarArea(fechaReporte);
+        } catch (Exception e) {
+        }
+         
+    }
+    void graficarStackedArea(){
+        try {
+                String fechaReporte = new SimpleDateFormat("dd/MM/yyyy").format(registroDeTrabajoVista.dcFechaGrafico.getDate());
+                reporteGraficoModel.GraficarStakedArea(fechaReporte);
         } catch (Exception e) {
         }
          

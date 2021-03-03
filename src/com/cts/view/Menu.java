@@ -82,9 +82,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/menuPequeno.png"))); // NOI18N
         jMenu1.setText(" MENU     ");
-        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
 
-        jMenuItemAyuda.setText("Ayuda");
+        jMenuItemAyuda.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItemAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/120-info.png"))); // NOI18N
+        jMenuItemAyuda.setText("Nosotros");
         jMenuItemAyuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemAyudaActionPerformed(evt);
@@ -92,6 +94,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemAyuda);
 
+        jMenuItemSalir.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItemSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/185-cross.png"))); // NOI18N
         jMenuItemSalir.setText("Salir");
         jMenuItemSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,8 +108,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/asistente-de-ventasPeq.png"))); // NOI18N
         jMenu2.setText(" PERSONAL     ");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
 
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/177-document.png"))); // NOI18N
         jMenuItem1.setText("Agregar Empleado");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +120,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem1);
 
+        jMenuItemTraductores.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItemTraductores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/177-document.png"))); // NOI18N
         jMenuItemTraductores.setText("Agregar Traductor");
         jMenuItemTraductores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,13 +134,15 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/cartaPeque.png"))); // NOI18N
         jMenu3.setText(" CARTAS      ");
-        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu3ActionPerformed(evt);
             }
         });
 
+        jMenuItemCartas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItemCartas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/177-document.png"))); // NOI18N
         jMenuItemCartas.setText("Ingresar Cartas");
         jMenuItemCartas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,8 +155,10 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/reportesPeque.png"))); // NOI18N
         jMenu4.setText(" ACTIVIDAD  ");
-        jMenu4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jMenu4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
 
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/043-coins.png"))); // NOI18N
         jMenuItem2.setText("Agregar Pago");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +167,8 @@ public class Menu extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem2);
 
+        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/005-wrench.png"))); // NOI18N
         jMenuItem3.setText("Mantenimiento Orden");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

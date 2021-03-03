@@ -77,6 +77,8 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
         btnBarraGrafico = new javax.swing.JButton();
         btnExcel = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
+        btnStackedArea = new javax.swing.JButton();
+        btnArea = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -124,7 +126,7 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
                         .addComponent(jLabel14)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +242,7 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
                     .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTraductor, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +323,8 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
 
         btnCancelar.setText("CANCELAR");
 
-        btnGenerarVenta.setText("TRABAJO REALIZADO");
+        btnGenerarVenta.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnGenerarVenta.setText("INGRESAR TRABAJO");
 
         btnGrafico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/030-pie-chart.png"))); // NOI18N
 
@@ -330,6 +333,10 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
         btnExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/xlsx-file-format-extension.png"))); // NOI18N
 
         jLabel15.setText("Seleccione una fecha:");
+
+        btnStackedArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/035-geometric.png"))); // NOI18N
+
+        btnArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/181-pyramidal.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -346,9 +353,13 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnGrafico)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnExcel)))
+                        .addComponent(btnStackedArea)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnArea)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13)
+                    .addComponent(btnExcel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -361,21 +372,26 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnBarraGrafico)
+                                    .addComponent(dcFechaGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnGrafico)))
+                            .addComponent(btnStackedArea, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnArea, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnBarraGrafico)
-                            .addComponent(dcFechaGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGrafico)
-                            .addComponent(btnExcel)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnGenerarVenta)
-                            .addComponent(btnCancelar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnGenerarVenta)
+                                .addComponent(btnCancelar))
+                            .addComponent(btnExcel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
                             .addComponent(txtTotalAPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -406,7 +422,7 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -427,6 +443,7 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnArea;
     public javax.swing.JButton btnBarraGrafico;
     public javax.swing.JButton btnBuscarProducto;
     public javax.swing.JButton btnBuscarTraductor;
@@ -434,6 +451,7 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnExcel;
     public javax.swing.JButton btnGenerarVenta;
     public javax.swing.JButton btnGrafico;
+    public javax.swing.JButton btnStackedArea;
     public com.toedter.calendar.JDateChooser dcFechaGrafico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
