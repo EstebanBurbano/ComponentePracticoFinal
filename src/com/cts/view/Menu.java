@@ -111,7 +111,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
 
         jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/177-document.png"))); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/128-businessman.png"))); // NOI18N
         jMenuItem1.setText("Agregar Empleado");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +121,7 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.add(jMenuItem1);
 
         jMenuItemTraductores.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        jMenuItemTraductores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/177-document.png"))); // NOI18N
+        jMenuItemTraductores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/107-users.png"))); // NOI18N
         jMenuItemTraductores.setText("Agregar Traductor");
         jMenuItemTraductores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +142,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jMenuItemCartas.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
-        jMenuItemCartas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/177-document.png"))); // NOI18N
+        jMenuItemCartas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/escribir-carta.png"))); // NOI18N
         jMenuItemCartas.setText("Ingresar Cartas");
         jMenuItemCartas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
