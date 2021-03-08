@@ -147,43 +147,77 @@ public class TrabajoControlador implements ActionListener{
             
 
         }
+        if (e.getSource() == registroDeTrabajoVista.btnCancelar) {
+            nuevo();
+
+        }
         
     }
     
     void excel(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="el reporte de excel";
         excelModel.reporteTrabajo();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
 
     void graficarPastel(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="el grafico de pastel";
         try {
                 String fechaReporte = new SimpleDateFormat("dd/MM/yyyy").format(registroDeTrabajoVista.dcFechaGrafico.getDate());
                 reporteGraficoModel.Graficar(fechaReporte);
         } catch (Exception e) {
         }
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
          
     }
     void graficarBarra(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="el grafico de barra";
         try {
                 String fechaReporte = new SimpleDateFormat("dd/MM/yyyy").format(registroDeTrabajoVista.dcFechaGrafico.getDate());
                 reporteGraficoModel.GraficarBarra(fechaReporte);
         } catch (Exception e) {
         }
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
          
     }
     void graficarArea(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="el grafico de area";
         try {
                 String fechaReporte = new SimpleDateFormat("dd/MM/yyyy").format(registroDeTrabajoVista.dcFechaGrafico.getDate());
                 reporteGraficoModel.GraficarArea(fechaReporte);
         } catch (Exception e) {
         }
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
          
     }
     void graficarStackedArea(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="el grafico de stacked area";
         try {
                 String fechaReporte = new SimpleDateFormat("dd/MM/yyyy").format(registroDeTrabajoVista.dcFechaGrafico.getDate());
                 reporteGraficoModel.GraficarStakedArea(fechaReporte);
         } catch (Exception e) {
         }
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
          
     }
     
@@ -209,6 +243,9 @@ public class TrabajoControlador implements ActionListener{
     }
     
     void actualizarStock(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="actualizar stock";
         for(int i = 0; i < tblRegistroDeActividad.getRowCount(); i++){
             idp=Integer.parseInt(registroDeTrabajoVista.tblVenta.getValueAt(i, 1).toString());
             cantidad = Integer.parseInt(registroDeTrabajoVista.tblVenta.getValueAt(i, 3).toString());
@@ -216,12 +253,25 @@ public class TrabajoControlador implements ActionListener{
             int stockActual=productosModel.getStockCarta() - cantidad;
             productosModelDao.actualizarStock(stockActual, idp);
         }
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
+        
     }
     void fecha(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="fecha";
         registroDeTrabajoVista.txtFecha.setText(""+calendar.get(Calendar.DAY_OF_MONTH)+"/0"+calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR));
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
         
     }
     void generarSerie(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="generar serie";
         String serie = trabajoModelDao.NroSerieTrabajo();
         if(serie == null){
             registroDeTrabajoVista.txtNumSerie.setText("000001");
@@ -230,10 +280,15 @@ public class TrabajoControlador implements ActionListener{
             increment = increment + 1;
             registroDeTrabajoVista.txtNumSerie.setText("00000"+increment);
         }
-        
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
     
     public void agregarProducto(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="agregar producto";
         double total;
         int item=0;
         tblRegistroDeActividad = (DefaultTableModel)registroDeTrabajoVista.tblVenta.getModel();
@@ -265,11 +320,16 @@ public class TrabajoControlador implements ActionListener{
         }else{
           JOptionPane.showMessageDialog(traductoresVista, "Stock producto no disponible");
         }
-        
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
         
     }
     
     void calcularTotal(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="calcular total";
         tpagar = 0;
         for(int i = 0; i < registroDeTrabajoVista.tblVenta.getRowCount(); i++){
             cantidad = Integer.parseInt(registroDeTrabajoVista.tblVenta.getValueAt(i, 3).toString());
@@ -277,9 +337,15 @@ public class TrabajoControlador implements ActionListener{
             tpagar= tpagar + (cantidad*precioProducto);
         }
         registroDeTrabajoVista.txtTotalAPagar.setText(""+tpagar);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
     
     public void buscarTraductor(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="buscar traductor";
         int r;
         String cod = registroDeTrabajoVista.txtCodTraductor.getText();
         if(registroDeTrabajoVista.txtCodTraductor.getText().equals("")){
@@ -303,9 +369,15 @@ public class TrabajoControlador implements ActionListener{
             
             
         }
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
     
     public void buscarProducto(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="buscar producto";
         
         int id=Integer.parseInt(registroDeTrabajoVista.txtCodProducto.getText());
         if(registroDeTrabajoVista.txtCodProducto.getText().equals("")){
@@ -324,9 +396,15 @@ public class TrabajoControlador implements ActionListener{
             }
                     
         }
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
             
     void guardarTrabajo(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="guardar el trabajo";
         int idTraductor= traductoresModel.getId();
         int idEmpleado=1;
         String serie=registroDeTrabajoVista.txtNumSerie.getText();
@@ -340,10 +418,15 @@ public class TrabajoControlador implements ActionListener{
         trabajoModel.setMonto(monto);
         trabajoModel.setEstado(estado);
         trabajoModelDao.GuardarTrabajo(trabajoModel);
-             
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");     
     }
     
     void guardarDetalleTrabajo(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="guardar el detalle del trabajo";
         String idv=trabajoModelDao.idTrabajo();
         int idve=Integer.parseInt(idv);
         for(int i = 0; i < registroDeTrabajoVista.tblVenta.getRowCount(); i++ ){
@@ -354,7 +437,10 @@ public class TrabajoControlador implements ActionListener{
             detalleTrabajoModel.setIdProducto(idp);
             detalleTrabajoModel.setCantidad(cant);
             detalleTrabajoModel.setPrecioVenta(precio);
-            trabajoModelDao.GuardarDetalleTrabajo(detalleTrabajoModel); 
+            trabajoModelDao.GuardarDetalleTrabajo(detalleTrabajoModel);
+            tFin = System.currentTimeMillis();
+            tiempo = tFin - tInicio;
+            System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
             
             
         }

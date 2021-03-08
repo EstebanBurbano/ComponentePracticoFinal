@@ -118,6 +118,8 @@ public class EmpleadosControlador implements ActionListener{
     }
     
     public void add() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
         String ci = empleadoVista.txtCiEmpleado.getText();
         String nombre = empleadoVista.txtNombreEmpleado.getText();
         String apellido = empleadoVista.txtApellidoEmpleado.getText();
@@ -136,9 +138,14 @@ public class EmpleadosControlador implements ActionListener{
             JOptionPane.showMessageDialog(empleadoVista, "Error");
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos del ingreso de empleados es de: " + tiempo + "ms");
     }
 
     public void Actualizar() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
         if (empleadoVista.txtIdEmpleado.getText().equals("")) {
             JOptionPane.showMessageDialog(empleadoVista, "No se Identifica el Id debe selecionar la opcion Editar");
         } else {
@@ -163,9 +170,15 @@ public class EmpleadosControlador implements ActionListener{
             }
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de la actualización de empleados es de: " + tiempo + "ms");
     }
     
     public void Eliminar() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+
         if (empleadoVista.txtIdEmpleado.getText().equals("")) {
             JOptionPane.showMessageDialog(empleadoVista, "No se Identifica el Id debe selecionar la opcion Editar");
         } else {
@@ -190,9 +203,14 @@ public class EmpleadosControlador implements ActionListener{
             }
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de eliminación de empleados es de: " + tiempo + "ms");
     }
     
     public void listar(JTable tabla) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
         centrarCeldas(tabla);
         tblEmpleados = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblEmpleados);
@@ -209,10 +227,15 @@ public class EmpleadosControlador implements ActionListener{
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de listar los empleados activos es de: " + tiempo + "ms");
 
     }
     
     public void listarInactivos(JTable tabla) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
         centrarCeldas(tabla);
         tblEmpleados = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblEmpleados);
@@ -229,6 +252,9 @@ public class EmpleadosControlador implements ActionListener{
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de los empleados inactivos es de: " + tiempo + "ms");
 
     }
 
@@ -248,6 +274,8 @@ public class EmpleadosControlador implements ActionListener{
     }
     
     public void buscarEmpleados(JTable tabla, String buscar) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
         centrarCeldas(tabla);
         tblEmpleados = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblEmpleados);
@@ -264,6 +292,9 @@ public class EmpleadosControlador implements ActionListener{
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de buscar empleados es de: " + tiempo + "ms");
 
     }
     

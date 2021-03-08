@@ -28,7 +28,10 @@ public class EmpleadosModelDao {
     Conexion con = new Conexion();
     Connection acceso;
     
+    
     public EmpleadosModel ValidarEmpleado(String usuarioEmpleado, String claveEmpleado){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
         EmpleadosModel administradoresModel = new EmpleadosModel();
         String sql="SELECT * FROM empleado WHERE BINARY usuario=? AND dni=?";
         try {
@@ -49,7 +52,11 @@ public class EmpleadosModelDao {
             
         } catch (Exception e) {
         }
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos login es de: " + tiempo + "ms");
         return administradoresModel;
+        
     }
     
     public EmpleadosModel listarId(String ciEmpleado){
@@ -75,7 +82,8 @@ public class EmpleadosModelDao {
         return empleadosModel;
     }
     
-    public int agregar(EmpleadosModel empleadosModel) {  
+    public int agregar(EmpleadosModel empleadosModel) {
+        
         int r=0;
         String sql="INSERT INTO empleado(dni,nombre,apellido,estado,usuario) VALUES (?,?,?,?,?)";
         try {
@@ -95,7 +103,8 @@ public class EmpleadosModelDao {
                 return 0;
             }
         } catch (Exception e) {
-        }  
+        }
+        
         return r;
     }
     public int Actualizar(EmpleadosModel empleadosModel) {  

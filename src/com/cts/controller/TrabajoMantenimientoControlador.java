@@ -121,6 +121,9 @@ public class TrabajoMantenimientoControlador implements ActionListener {
     }
     
     public void Actualizar() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="actualizar orden de trabajo";
         if (trabajoVista.txtIdTrabajo.getText().equals("")) {
             JOptionPane.showMessageDialog(trabajoVista, "No se Identifica el Id debe selecionar la opcion Editar");
         } else {
@@ -147,9 +150,15 @@ public class TrabajoMantenimientoControlador implements ActionListener {
             }
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
     
     public void Eliminar() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="eliminar orden de trabajo";
         if (trabajoVista.txtIdTrabajo.getText().equals("")) {
             JOptionPane.showMessageDialog(trabajoVista, "No se Identifica el Id debe selecionar la opcion Editar");
         } else {
@@ -176,9 +185,15 @@ public class TrabajoMantenimientoControlador implements ActionListener {
             }
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
     
     public void listar(JTable tabla) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="listar orden de trabajo";
         centrarCeldas(tabla);
         tblTrabajo = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblTrabajo);
@@ -196,10 +211,16 @@ public class TrabajoMantenimientoControlador implements ActionListener {
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
 
     }
     
     public void listarInactivos(JTable tabla) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="listar orden de trabajo inactivos";
         centrarCeldas(tabla);
         tblTrabajo = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblTrabajo);
@@ -217,10 +238,16 @@ public class TrabajoMantenimientoControlador implements ActionListener {
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
 
     }
     
     public void buscarTrabajo(JTable tabla, String buscar) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="buscar orden de trabajo";
         centrarCeldas(tabla);
         tblTrabajo = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblTrabajo);
@@ -238,6 +265,9 @@ public class TrabajoMantenimientoControlador implements ActionListener {
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
 
     }
     

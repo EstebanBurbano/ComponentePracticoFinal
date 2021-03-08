@@ -144,6 +144,9 @@ public class TraductoresControlador implements ActionListener {
     }
     
     public void add() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="agregar traductor";
         String ci = traductoresVista.txtCiTraductor.getText();
         String nombre = traductoresVista.txtNombreTraductor.getText();
         String apellido = traductoresVista.txtApellidoTraductor.getText();
@@ -167,9 +170,15 @@ public class TraductoresControlador implements ActionListener {
             JOptionPane.showMessageDialog(traductoresVista, "Error");
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
 
     public void Actualizar() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="actualizar traductor";
         if (traductoresVista.txtIdTraductor.getText().equals("")) {
             JOptionPane.showMessageDialog(traductoresVista, "No se Identifica el Id debe selecionar la opcion Editar");
         } else {
@@ -198,10 +207,15 @@ public class TraductoresControlador implements ActionListener {
             }
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
     
     public void Eliminar(){
-        
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="eliminar traductor";
         if (traductoresVista.txtIdTraductor.getText().equals("")) {
             JOptionPane.showMessageDialog(traductoresVista, "No se Identifica el Id debe selecionar la opcion Editar");
         } else {
@@ -230,10 +244,16 @@ public class TraductoresControlador implements ActionListener {
             }
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
         
     }
     
     public void listar(JTable tabla) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="listar traductor";
         centrarCeldas(tabla);
         tblTraductores = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblTraductores);
@@ -252,11 +272,15 @@ public class TraductoresControlador implements ActionListener {
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
-
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
     }
     
     public void listarInactivos(JTable tabla){
-        
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="listar traductores inactivos";
         centrarCeldas(tabla);
         tblTraductores = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblTraductores);
@@ -275,12 +299,16 @@ public class TraductoresControlador implements ActionListener {
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
-
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
         
     }
     
     public void buscarTraductor(JTable tabla, String buscar){
-        
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="buscar traductor";
         centrarCeldas(tabla);
         tblTraductores = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblTraductores);
@@ -299,7 +327,9 @@ public class TraductoresControlador implements ActionListener {
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
-
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
         
     }
     

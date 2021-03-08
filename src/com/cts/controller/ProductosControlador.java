@@ -120,8 +120,15 @@ public class ProductosControlador implements ActionListener{
        
     }
     
+
+    
     void excel(){
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
         excelModel.reporte();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de la creacion del documento excel es de: " + tiempo + "ms");
     }
     
     void nuevo() {
@@ -134,6 +141,9 @@ public class ProductosControlador implements ActionListener{
     }
     
     public void add() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun= "agregar producto";
         String nombre = cartasVista.txtNombreProducto.getText();
         double precio = Double.parseDouble(cartasVista.txtPrecioProducto.getText());
         int stock = Integer.parseInt(cartasVista.txtStrockProducto.getText());
@@ -151,9 +161,15 @@ public class ProductosControlador implements ActionListener{
             JOptionPane.showMessageDialog(cartasVista, "Error");
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ "es de: " + tiempo + "ms");
     }
 
     public void Actualizar() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="actualizar productos";
         if (cartasVista.txtIdPrducto.getText().equals("")) {
             JOptionPane.showMessageDialog(cartasVista, "No se Identifica el Id debe selecionar la opcion Editar");
         } else {
@@ -176,9 +192,16 @@ public class ProductosControlador implements ActionListener{
             }
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ "es de: " + tiempo + "ms");
+        
     }
     
     public void Eliminar() {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="eliminar productos";
          if (cartasVista.txtIdPrducto.getText().equals("")) {
             JOptionPane.showMessageDialog(cartasVista, "No se Identifica el Id debe selecionar la opcion Editar");
         } else {
@@ -201,10 +224,16 @@ public class ProductosControlador implements ActionListener{
             }
         }
         limpiarTabla();
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ "es de: " + tiempo + "ms");
         
     }
     
     public void listar(JTable tabla) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="listar productos";
         centrarCeldas(tabla);
         tblCartas = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblCartas);
@@ -220,10 +249,16 @@ public class ProductosControlador implements ActionListener{
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ "es de: " + tiempo + "ms");
 
     }
     
     public void listarInactivos(JTable tabla) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="listar productos inactivos";
         centrarCeldas(tabla);
         tblCartas = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblCartas);
@@ -239,10 +274,16 @@ public class ProductosControlador implements ActionListener{
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ "es de: " + tiempo + "ms");
 
     }
     
     public void buscarEmpleados(JTable tabla, String buscar) {
+        long tInicio, tFin, tiempo;
+        tInicio = System.currentTimeMillis();
+        String nomfun="buscar empleados";
         centrarCeldas(tabla);
         tblCartas = (DefaultTableModel) tabla.getModel();
         tabla.setModel(tblCartas);
@@ -258,6 +299,9 @@ public class ProductosControlador implements ActionListener{
         }
         tabla.setRowHeight(35);
         tabla.setRowMargin(10);
+        tFin = System.currentTimeMillis();
+        tiempo = tFin - tInicio;
+        System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ "es de: " + tiempo + "ms");
 
     }
     
