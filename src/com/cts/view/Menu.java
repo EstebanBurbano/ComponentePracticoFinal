@@ -56,6 +56,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MGE (MODULO DE GESTION DE EMPLEADOS)");
 
         VentanaPrincipal.setBackground(new java.awt.Color(88, 113, 158));
 
@@ -196,6 +197,12 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAyudaActionPerformed
+        Nosotros nosotros = new Nosotros();
+        VentanaPrincipal.add(nosotros);
+        Dimension desktopSize = VentanaPrincipal.getSize();
+        Dimension FrameSize = nosotros.getSize();
+        nosotros.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        nosotros.show();
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemAyudaActionPerformed
 
