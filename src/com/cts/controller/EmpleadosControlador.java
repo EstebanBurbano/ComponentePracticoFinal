@@ -64,37 +64,27 @@ public class EmpleadosControlador implements ActionListener{
             empleadoVista.cbEstadoEmpleado.setEnabled(true);
         }
         if (e.getSource() == empleadoVista.btnAgregar) {
+            if(empleadoVista.txtCiEmpleado.getText().isEmpty() || empleadoVista.txtNombreEmpleado.getText().isEmpty() || empleadoVista.txtApellidoEmpleado.getText().isEmpty() || empleadoVista.txtUsuarioEmpleado.getText().isEmpty()){
+             JOptionPane.showMessageDialog(empleadoVista, "Complete todos los datos");
+             empleadoVista.cbEstadoEmpleado.setEnabled(false);
+            }else{
             add();
             listar(empleadoVista.tblEmpleados);
             nuevo();
-            empleadoVista.cbEstadoEmpleado.setEnabled(false);
+            empleadoVista.cbEstadoEmpleado.setEnabled(false);}
 
         }
-        /*if (e.getSource() == empleadoVista.btnEditar) {
-            int fila = empleadoVista.tblEmpleados.getSelectedRow();
-            if (fila == -1) {
-                JOptionPane.showMessageDialog(empleadoVista, "Debee Seleccionar Una fila..!!");
-            } else {
-                int id = Integer.parseInt((String) empleadoVista.tblEmpleados.getValueAt(fila, 0).toString());
-                String dni = (String) empleadoVista.tblEmpleados.getValueAt(fila, 1);
-                String nombre = (String) empleadoVista.tblEmpleados.getValueAt(fila, 2);
-                String apellido = (String) empleadoVista.tblEmpleados.getValueAt(fila, 3);
-                String estado = (String) empleadoVista.tblEmpleados.getValueAt(fila, 4);
-                String usuario = (String) empleadoVista.tblEmpleados.getValueAt(fila, 5);
-                empleadoVista.txtIdEmpleado.setText("" + id);
-                empleadoVista.txtCiEmpleado.setText(dni);
-                empleadoVista.txtNombreEmpleado.setText(nombre);
-                empleadoVista.txtApellidoEmpleado.setText(apellido);
-                empleadoVista.cbEstadoEmpleado.setSelectedItem(estado);
-                empleadoVista.txtUsuarioEmpleado.setText(usuario);
-            }
-        }*/
-        
+
         if (e.getSource() == empleadoVista.btnActualizar) {
+            if(empleadoVista.txtCiEmpleado.getText().isEmpty() || empleadoVista.txtNombreEmpleado.getText().isEmpty() || empleadoVista.txtApellidoEmpleado.getText().isEmpty() || empleadoVista.txtUsuarioEmpleado.getText().isEmpty()){
+             JOptionPane.showMessageDialog(empleadoVista, "Complete todos los datos");
+             empleadoVista.cbEstadoEmpleado.setEnabled(false);
+            }else{
             Actualizar();
             listar(empleadoVista.tblEmpleados);
             nuevo();
-            empleadoVista.cbEstadoEmpleado.setEnabled(false);
+            empleadoVista.cbEstadoEmpleado.setEnabled(false);}
+            
 
         }
         if (e.getSource() == empleadoVista.btnEliminar) {

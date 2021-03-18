@@ -27,6 +27,8 @@ public class TrabajoModelDao {
     Conexion con = new Conexion();
     Connection acceso;
     int r=0;
+    TraductoresModel traductoresModel = new TraductoresModel();
+    
     
     public String NroSerieTrabajo(){
         String serie="";

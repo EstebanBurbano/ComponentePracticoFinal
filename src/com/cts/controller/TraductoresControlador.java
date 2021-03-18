@@ -77,43 +77,27 @@ public class TraductoresControlador implements ActionListener {
             traductoresVista.cbEstadoTraductor.setEnabled(true);
         }
         if (e.getSource() == traductoresVista.btnAgregar) {
+            if(traductoresVista.txtCiTraductor.getText().isEmpty() || traductoresVista.txtNombreTraductor.getText().isEmpty() || traductoresVista.txtApellidoTraductor.getText().isEmpty() || traductoresVista.txtBancoTraductor.getText().isEmpty() || traductoresVista.txtCuentaBanco.getText().isEmpty() || traductoresVista.txtTipoCuenta.getText().isEmpty()){
+                JOptionPane.showMessageDialog(traductoresVista, "Complete todos los datos");
+                traductoresVista.cbEstadoTraductor.setEnabled(false);
+            }else{
             add();
             listar(traductoresVista.tblTraductores);
             nuevo();
-            traductoresVista.cbEstadoTraductor.setEnabled(false);
+            traductoresVista.cbEstadoTraductor.setEnabled(false);}
 
         }
-        /*if (e.getSource() == traductoresVista.btnEditar) {
-            int fila = traductoresVista.tblTraductores.getSelectedRow();
-            if (fila == -1) {
-                JOptionPane.showMessageDialog(traductoresVista, "Debee Seleccionar Una fila..!!");
-            } else {
-                int id = Integer.parseInt((String) traductoresVista.tblTraductores.getValueAt(fila, 0).toString());
-                String dni = (String) traductoresVista.tblTraductores.getValueAt(fila, 1);
-                String nombre = (String) traductoresVista.tblTraductores.getValueAt(fila, 2);
-                String apellido = (String) traductoresVista.tblTraductores.getValueAt(fila, 3);
-                String nombreBanco = (String) traductoresVista.tblTraductores.getValueAt(fila, 4);
-                String numeroCuentaBanco = (String) traductoresVista.tblTraductores.getValueAt(fila, 5);
-                String tipoCuenta = (String) traductoresVista.tblTraductores.getValueAt(fila, 6);
-                String estado = (String) traductoresVista.tblTraductores.getValueAt(fila, 7);
-                traductoresVista.txtIdTraductor.setText("" + id);
-                traductoresVista.txtCiTraductor.setText(dni);
-                traductoresVista.txtNombreTraductor.setText(nombre);
-                traductoresVista.txtApellidoTraductor.setText(apellido);
-                traductoresVista.txtBancoTraductor.setText(nombreBanco);
-                traductoresVista.txtCuentaBanco.setText(numeroCuentaBanco);
-                traductoresVista.txtTipoCuenta.setText(tipoCuenta);
-                traductoresVista.cbEstadoTraductor.setSelectedItem(estado);
-                
-            }
-            
 
-        }*/
         if (e.getSource() == traductoresVista.btnActualizar) {
+            if(traductoresVista.txtCiTraductor.getText().isEmpty() || traductoresVista.txtNombreTraductor.getText().isEmpty() || traductoresVista.txtApellidoTraductor.getText().isEmpty() || traductoresVista.txtBancoTraductor.getText().isEmpty() || traductoresVista.txtCuentaBanco.getText().isEmpty() || traductoresVista.txtTipoCuenta.getText().isEmpty()){
+                JOptionPane.showMessageDialog(traductoresVista, "Complete todos los datos");
+                traductoresVista.cbEstadoTraductor.setEnabled(false);
+            }else{
             Actualizar();
             listar(traductoresVista.tblTraductores);
             nuevo();
-            traductoresVista.cbEstadoTraductor.setEnabled(false);
+            traductoresVista.cbEstadoTraductor.setEnabled(false);}
+            
 
         }
         if (e.getSource() == traductoresVista.btnEliminar) {

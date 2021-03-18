@@ -25,8 +25,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -129,8 +133,11 @@ public class TrabajoControlador implements ActionListener{
 
         }
         if (e.getSource() == registroDeTrabajoVista.btnAgregar) {
+            if(registroDeTrabajoVista.txtTraductor.getText().isEmpty() || registroDeTrabajoVista.txtProducto.getText().isEmpty() || registroDeTrabajoVista.spCantidad.getValue().toString().equals("0")){
+            JOptionPane.showMessageDialog(registroDeTrabajoVista, "Complete todos los datos");
+            }else{
             agregarProducto();
-            calcularTotal();    
+            calcularTotal();}    
 
         }
         if (e.getSource() == registroDeTrabajoVista.btnGenerarVenta) {
@@ -150,7 +157,7 @@ public class TrabajoControlador implements ActionListener{
         if (e.getSource() == registroDeTrabajoVista.btnCancelar) {
             nuevo();
 
-        }
+        }        
         
     }
     

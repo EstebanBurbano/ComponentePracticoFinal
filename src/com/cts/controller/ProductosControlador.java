@@ -75,39 +75,26 @@ public class ProductosControlador implements ActionListener{
 
         }
         if (e.getSource() == cartasVista.btnAgregar) {
+            if(cartasVista.txtNombreProducto.getText().isEmpty() || cartasVista.txtPrecioProducto.getText().isEmpty() || cartasVista.txtStrockProducto.getText().isEmpty()){
+               JOptionPane.showMessageDialog(cartasVista, "Complete todos los datos");
+               cartasVista.cbEstadoProducto.setEnabled(false);
+            }else{
             add();
             listar(cartasVista.tblCartas);
             nuevo();
-            cartasVista.cbEstadoProducto.setEnabled(false);
+            cartasVista.cbEstadoProducto.setEnabled(false);}
 
         }
-        /*if (e.getSource() == cartasVista.btnEditar) {
-            int fila = cartasVista.tblCartas.getSelectedRow();
-            if (fila == -1) {
-                JOptionPane.showMessageDialog(cartasVista, "Debee Seleccionar Una fila..!!");
-            } else {
-                int id = Integer.parseInt((String) cartasVista.tblCartas.getValueAt(fila, 0).toString());
-                String nombre = (String) cartasVista.tblCartas.getValueAt(fila, 1);
-                double precio = Double.parseDouble((String) cartasVista.tblCartas.getValueAt(fila, 2).toString());
-                int stock = Integer.parseInt((String) cartasVista.tblCartas.getValueAt(fila, 3).toString());
-                String estado = (String) cartasVista.tblCartas.getValueAt(fila, 4);
-               
-                cartasVista.txtIdPrducto.setText("" + id);
-                cartasVista.txtNombreProducto.setText(nombre);
-                cartasVista.txtPrecioProducto.setText("" + precio);
-                cartasVista.txtStrockProducto.setText("" + stock);
-                cartasVista.cbEstadoProducto.setSelectedItem(estado);
-                 
-            }
-            
-
-        }*/
         if (e.getSource() == cartasVista.btnActualizar) {
+            if(cartasVista.txtNombreProducto.getText().isEmpty() || cartasVista.txtPrecioProducto.getText().isEmpty() || cartasVista.txtStrockProducto.getText().isEmpty()){
+               JOptionPane.showMessageDialog(cartasVista, "Complete todos los datos");
+               cartasVista.cbEstadoProducto.setEnabled(false);
+            }else{
             Actualizar();
             listar(cartasVista.tblCartas);
             nuevo();
-            cartasVista.cbEstadoProducto.setEnabled(false);
-
+            cartasVista.cbEstadoProducto.setEnabled(false);}
+            
         }
         if (e.getSource() == cartasVista.btnEliminar) {
             Eliminar();
