@@ -78,7 +78,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(VentanaPrincipalLayout.createSequentialGroup()
                 .addGap(193, 193, 193)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(683, Short.MAX_VALUE))
+                .addContainerGap(379, Short.MAX_VALUE))
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/menuPequeno.png"))); // NOI18N

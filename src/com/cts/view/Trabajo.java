@@ -63,7 +63,6 @@ public class Trabajo extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("MANTENIMIENTO DE ORDEN");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));

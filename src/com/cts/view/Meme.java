@@ -31,8 +31,6 @@ public class Meme extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         setTitle("MEME");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/cts/images/índice.jpg"))); // NOI18N

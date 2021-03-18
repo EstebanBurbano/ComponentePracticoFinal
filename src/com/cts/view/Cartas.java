@@ -60,7 +60,6 @@ public class Cartas extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("CARTAS");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));

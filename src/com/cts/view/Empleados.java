@@ -64,7 +64,6 @@ public class Empleados extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("EMPLEADOS");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));

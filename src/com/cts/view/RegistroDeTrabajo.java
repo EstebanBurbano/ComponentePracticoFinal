@@ -82,7 +82,6 @@ public class RegistroDeTrabajo extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("REGISTRO DE ACTIVIDAD");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());

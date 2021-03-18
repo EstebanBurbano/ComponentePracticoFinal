@@ -66,7 +66,6 @@ public class Traductores extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
         setTitle("TRADUCTORES");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));

@@ -47,8 +47,6 @@ public class Nosotros extends javax.swing.JInternalFrame {
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setClosable(true);
         setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
         setTitle("NOSOTROS");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
