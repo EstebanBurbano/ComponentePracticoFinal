@@ -73,7 +73,7 @@ public class TrabajoControlador implements ActionListener{
         this.registroDeTrabajoVista.btnExcel.addActionListener(this);
         this.registroDeTrabajoVista.btnArea.addActionListener(this);
         this.registroDeTrabajoVista.btnStackedArea.addActionListener(this);
-        generarSerie();
+        generarSerie2();
         fecha();
         
     }
@@ -149,7 +149,7 @@ public class TrabajoControlador implements ActionListener{
             actualizarStock();
             JOptionPane.showMessageDialog(traductoresVista, "Se realizo con exito!");
             nuevo();
-            generarSerie();
+            generarSerie2();
            }
             
 
@@ -275,6 +275,25 @@ public class TrabajoControlador implements ActionListener{
         System.out.println("El tiempo de ejecucion en milisegundos de " +nomfun+ " es de: " + tiempo + "ms");
         
     }
+    
+    protected void generarSerie2(){
+        //ventasDAO =  new VentasDAO();
+        String serie = "";
+        int increment = 0;
+        serie = trabajoModelDao.nroSerieVentas();
+        if (serie == null) {
+            registroDeTrabajoVista.txtNumSerie.setText("000001");
+        }else{
+            increment = Integer.parseInt(serie);
+            increment = increment + 1;
+            if (increment < 10) {
+                registroDeTrabajoVista.txtNumSerie.setText("00000"+increment); //0000009 //7 digitos
+            }else if(increment >= 10 && increment <= 99){ //0000099 //7 digitos
+                registroDeTrabajoVista.txtNumSerie.setText("0000"+increment);
+            } //... sucesivamente
+        }
+    }
+    
     void generarSerie(){
         long tInicio, tFin, tiempo;
         tInicio = System.currentTimeMillis();

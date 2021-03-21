@@ -12,6 +12,7 @@ import com.cts.model.TraductoresModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,28 @@ public class TrabajoModelDao {
     int r=0;
     TraductoresModel traductoresModel = new TraductoresModel();
     
+    
+    public String nroSerieVentas() {
+        String serie = "";
+        String sql = "select max(NumeroSerie) from trabajo";
+        try {
+            acceso=con.Conectar();
+            ps=acceso.prepareStatement(sql);
+            rs=ps.executeQuery();
+            if (rs == null) {
+                return null;
+            } else {
+                while (rs.next()) {
+                    serie = String.valueOf(rs.getInt(1)); //hace referencia al SELECT campos 1,2,3 ...
+                    System.out.println("Serie: " + serie);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error DAO: " + e.getMessage());
+        }
+        return serie;
+
+    }
     
     public String NroSerieTrabajo(){
         String serie="";
